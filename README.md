@@ -36,3 +36,13 @@ MSE is used to asses the performance of the network. The goal is to reduce the o
     }
     MSE /= layers.back();
  ```
+### Step 3: Calculate the Output Error Terms
+This is an intermediate error calculation to determine the performance of a neuron. We pay attention to the output layer. We will later use these error terms to calculate error terms in the hidden layers moving backwards, hence the name back propogation
+
+<img width= "300" height = "75" src= "https://user-images.githubusercontent.com/106715980/186541985-e65eeee3-6937-40f5-b78b-fb28e9a340bf.png">
+
+``` C++
+for (int i = 0; i < outputs.size(); i++)
+        d.back()[i] = outputs[i] * (1 - outputs[i]) * (error[i]);// d is a vector storing error terms
+```
+
