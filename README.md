@@ -18,7 +18,21 @@ Although a segment display can be easily classified using hard code, the advanta
 ### Step 1: Feed a Sample to the network
 We run a sample 'x' thorugh the network and assign the result to a new vector "output"
 
-`vector<double> outputs = run(x);`
+```C++
+vector<double> outputs = run(x);
+```
 
 ### Step 2: Calculate the Mean Squared Error
-MSE is used to asses the performance of the network
+MSE is used to asses the performance of the network. The goal is to reduce the output of this function
+
+<img width= "300" height = "200" src= "https://user-images.githubusercontent.com/106715980/186539866-4e92f39b-af92-430b-b1dd-e51937724639.png">
+
+``` C++
+ vector<double> error;
+    double MSE = 0.0;
+    for (int i = 0; i < y.size(); i++){ // y is the label value
+        error.push_back(y[i] - outputs[i]);
+        MSE += error[i] * error[i];
+    }
+    MSE /= layers.back();
+ ```
