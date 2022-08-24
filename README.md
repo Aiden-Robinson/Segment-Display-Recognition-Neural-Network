@@ -2,6 +2,8 @@
 Created a neural netowork from scratch by following along with Linkedin Learning's "Training Neural Networks in C++".
 
 Used a feedforward neural network with 1 input layer, 1 hidden layer, and, 1 output layer. There are 7 inputs and 10 outputs. The 7 inputs being the brightness of each display segment and the 10 outputs being the confidence of classification in each number 0-9
+<img width= "350" height = "175" src= "https://user-images.githubusercontent.com/106715980/186539394-43368700-1a66-45b2-a283-70d367158202.png">
+
 
 A sigmoid function is used for the activation function, this provides nonlinearity to the neuron, and enables training by backpropogation.
 <img width= "300" height = "100" src= "https://user-images.githubusercontent.com/106715980/186538404-e0c7777e-f950-4bc7-acd0-39392a74d6be.png">
