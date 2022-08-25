@@ -11,7 +11,11 @@ A sigmoid function is used for the activation function, this provides nonlineari
 <img width= "300" height = "100" src= "https://user-images.githubusercontent.com/106715980/186538404-e0c7777e-f950-4bc7-acd0-39392a74d6be.png">
 
 
-Although a segment display can be easily classified using hard code, the advantage of using a neural network is generability espeically when the GUI allows for dimmable sections.
+Although a segment display can be easily classified using hard code, the advantage of using a neural network is generability espeically when the GUI allows for dimmable sections. Graphical and user interface was done with a template from the JUCE framework.
+
+<img width= "300" height = "100" src= "https://user-images.githubusercontent.com/106715980/186569291-c11ed917-fe7d-4e3b-81d2-fe60b0b58adf.png">
+
+
 
 ## Training by Back Propogation
 
