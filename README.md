@@ -1,5 +1,5 @@
 # Segment-Display-Recognition-Neural-Network
-Created a neural netowork from scratch by following along with Linkedin Learning's "Training Neural Networks in C++". In the past I did my first neural network using Tensorflow, but this project goes into much more depth without the use of external libraries for the network. 
+Created a neural netowork from scratch by following along with Linkedin Learning's "Training Neural Networks in C++". 
 
 Used a feedforward neural network with 1 input layer, 1 hidden layer, and, 1 output layer. There are 7 inputs and 10 outputs. The 7 inputs being the brightness of each display segment and the 10 outputs being the confidence of classification in each number 0-9
 |||
@@ -24,7 +24,35 @@ Although a segment display can be easily classified using hard code, the advanta
 
 <img width= "300" height = "100" src= "https://user-images.githubusercontent.com/106715980/186569291-c11ed917-fe7d-4e3b-81d2-fe60b0b58adf.png">
 
+Without the use of libraries, perceptrons, weights,  activation function, back propogation training, were hard coded with the use of these classes:
 
+```C++
+class Perceptron {
+	public: 
+		vector<double> weights;
+		double bias; //
+		Perceptron(int inputs, double bias=1.0); //stating all of the functions that will be declared in this class
+        double run(vector<double> x);
+		void set_weights(vector<double> w_init);
+		double sigmoid(double x); //sigmoid function
+};
+
+class MultiLayerPerceptron {
+	public: 
+		MultiLayerPerceptron(vector<int> layers, double bias=1.0, double eta = 0.5); //stating all of the functions that will be declared in this class
+		void set_weights(vector<vector<vector<double> > > w_init);
+		void print_weights();
+		vector<double> run(vector<double> x);
+		double bp(vector<double> x, vector<double> y); // back propogation
+		
+		vector<int> layers;
+		double bias;
+		double eta;// learning rate
+		vector<vector<Perceptron> > network;// vector of vector of perceptrons
+		vector<vector<double> > values;// vector with the same dimensions as the network to hold the output values of the neurons. It will be used to propogate the results forward throught the network.
+		vector<vector<double> > d;// vector of vectors containing error terms for the neurons
+};
+```
 
 ## Training by Back Propogation
 
