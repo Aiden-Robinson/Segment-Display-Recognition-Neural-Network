@@ -59,8 +59,36 @@ for (int i = network.size()-2; i > 0; i--)//iterates layers
             d[i][h] = values[i][h] * (1-values[i][h]) * fwd_error;
         }
 ```
-### Step 5: Apply the Delta Rule
+### Step 5/6: Apply the Delta Rule and Adjust Weights
 
-Since we now have all of the error terms, we can proceed to calculate the weight adjustments. The learning rate is constant for all neurons, it affects the rate of learning, higher values result in larger leaps for the weights.
+Since we now have all of the error terms, we can proceed to calculate the weight adjustments of the neuron. The learning rate is constant for all neurons, it affects the rate of learning, higher values result in larger leaps for the weights.
+
+Adjusting the weights will result will change the MSE of the output. The goal of gradient descent is to find the weight that minimized MSE as illustrated by this diagram. The learning rate is essentially how large the steps we are taking across this function to find that point. 
+
+**Gradient Descent**
+
+<img width= "500" height = "200" src= "https://user-images.githubusercontent.com/106715980/186555929-c1910a6c-004b-4e82-b86f-8ca73b7825af.png">
+
+
+**Delta Rule**
 
 <img width= "450" height = "100" src= "https://user-images.githubusercontent.com/106715980/186554259-66a3cb8a-00b7-422c-bbbd-cf43552e4c38.png">
+
+**Weight Adjustent**
+
+<img width= "300" height = "50" src= "https://user-images.githubusercontent.com/106715980/186556699-f59dbdf8-6237-4fa1-b9e5-31da1ac0bf9c.png">
+
+
+```C++
+for (int i = 1; i < network.size(); i++)//iterates layers
+        for (int j = 0; j < layers[i]; j++)//iterates neurons
+            for (int k = 0; k < layers[i-1]+1; k++){//iterates inputs, the +1 is for the bias weight
+                double delta;
+                if (k==layers[i-1]) //fo the following if its the last input
+                    delta = eta * d[i][j] * bias;
+                else
+                    delta = eta * d[i][j] * values[i-1][k];// delta formula
+                network[i][j].weights[k] += delta;//adjusting the weights
+            }
+    return MSE;
+```
