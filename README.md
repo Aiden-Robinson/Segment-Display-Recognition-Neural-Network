@@ -1,5 +1,5 @@
 # Segment-Display-Recognition-Neural-Network
-Created a neural netowork from scratch by following along with Linkedin Learning's "Training Neural Networks in C++".
+Created a neural netowork from scratch by following along with Linkedin Learning's "Training Neural Networks in C++". In the past I did my first neural network using Tensorflow, but this project goes into much more depth without the use of external libraries for the network. 
 
 Used a feedforward neural network with 1 input layer, 1 hidden layer, and, 1 output layer. There are 7 inputs and 10 outputs. The 7 inputs being the brightness of each display segment and the 10 outputs being the confidence of classification in each number 0-9
 
@@ -35,7 +35,7 @@ MSE is used to asses the performance of the network. The goal is to reduce the o
         MSE += error[i] * error[i];
     }
     MSE /= layers.back();
- ```
+```
 ### Step 3: Calculate the Output Error Terms
 This is an intermediate error calculation to determine the performance of a neuron. We pay attention to the output layer. We will later use these error terms to calculate error terms in the hidden layers moving backwards, hence the name back propogation
 
@@ -45,4 +45,22 @@ This is an intermediate error calculation to determine the performance of a neur
 for (int i = 0; i < outputs.size(); i++)
         d.back()[i] = outputs[i] * (1 - outputs[i]) * (error[i]);// d is a vector storing error terms
 ```
+### Step 4: Calculating Hidden Layer Error Terms
+We iterate through the last hidden layer all the way to the first hidden layer to find an error term per neuron. In the hidden layers, error is unkown because we don't know what to expect from the intermediate neurons. We use a sum of a product that includes the error terms forward neurons connected to the current neurons output.
 
+<img width= "400" height = "100" src= "https://user-images.githubusercontent.com/106715980/186553151-9e8abfb3-adeb-4993-a842-f115f5b6a253.png">
+
+```C++
+for (int i = network.size()-2; i > 0; i--)//iterates layers
+        for (int h = 0; h < network[i].size(); h++){//iterates neurons
+            double fwd_error = 0.0;
+            for (int k = 0; k < layers[i+1]; k++)
+                fwd_error += network[i+1][k].weights[h] * d[i+1][k]; //summation
+            d[i][h] = values[i][h] * (1-values[i][h]) * fwd_error;
+        }
+```
+### Step 5: Apply the Delta Rule
+
+Since we now have all of the error terms, we can proceed to calculate the weight adjustments. The learning rate is constant for all neurons, it affects the rate of learning, higher values result in larger leaps for the weights.
+
+<img width= "450" height = "100" src= "https://user-images.githubusercontent.com/106715980/186554259-66a3cb8a-00b7-422c-bbbd-cf43552e4c38.png">
