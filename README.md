@@ -2,10 +2,13 @@
 Created a neural netowork from scratch by following along with Linkedin Learning's "Training Neural Networks in C++". 
 
 Used a feedforward neural network with 1 input layer, 1 hidden layer, and, 1 output layer. There are 7 inputs and 10 outputs. The 7 inputs being the brightness of each display segment and the 10 outputs being the confidence of classification in each number 0-9
-|||
-|:---:|:---:|
-|<img width= "430" height = "400" src= "https://user-images.githubusercontent.com/106715980/186570376-db5c907e-7aa2-4c60-8954-9d2588c45167.png">|<img width= "430" height = "400" src= "https://user-images.githubusercontent.com/106715980/186570442-6f1f6783-9f64-4518-90ae-06eba608c978.png">|
-|<img width= "430" height = "400" src= "https://user-images.githubusercontent.com/106715980/186570452-6f3defd3-cafd-475c-ad45-33e65827cfde.png">|<img width= "430" height = "400" src= "https://user-images.githubusercontent.com/106715980/186570461-71f5f7b7-b86e-4d34-86b6-e54064dbcb63.png">|
+
+`Skills:` Neural Networks, OOP
+
+
+
+<img width= "430" height = "400" src= "https://user-images.githubusercontent.com/106715980/186570376-db5c907e-7aa2-4c60-8954-9d2588c45167.png"> <img width= "430" height = "400" src= "https://user-images.githubusercontent.com/106715980/186570442-6f1f6783-9f64-4518-90ae-06eba608c978.png">
+<img width= "430" height = "400" src= "https://user-images.githubusercontent.com/106715980/186570452-6f3defd3-cafd-475c-ad45-33e65827cfde.png"> <img width= "430" height = "400" src= "https://user-images.githubusercontent.com/106715980/186570461-71f5f7b7-b86e-4d34-86b6-e54064dbcb63.png">
 
 
 
