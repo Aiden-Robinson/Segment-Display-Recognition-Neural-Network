@@ -58,6 +58,27 @@ class MultiLayerPerceptron {
 };
 ```
 
+## Training Data
+This particular project has a small amount of data that is required to train to model with. It is just the segment inputs for all 10 possible outputs. This was ran for 3000 epochs.
+
+```C++
+sdrnn = new MultiLayerPerceptron({7,7,10});
+    
+    for (int i = 0; i < epochs; i++){
+        MSE = 0.0;
+        MSE += sdrnn->bp({1,1,1,1,1,1,0}, {1,0,0,0,0,0,0,0,0,0}); //0 pattern
+        MSE += sdrnn->bp({0,1,1,0,0,0,0}, {0,1,0,0,0,0,0,0,0,0}); //1 pattern
+        MSE += sdrnn->bp({1,1,0,1,1,0,1}, {0,0,1,0,0,0,0,0,0,0}); //2 pattern
+        MSE += sdrnn->bp({1,1,1,1,0,0,1}, {0,0,0,1,0,0,0,0,0,0}); //3 pattern
+        MSE += sdrnn->bp({0,1,1,0,0,1,1}, {0,0,0,0,1,0,0,0,0,0}); //4 pattern
+        MSE += sdrnn->bp({1,0,1,1,0,1,1}, {0,0,0,0,0,1,0,0,0,0}); //5 pattern
+        MSE += sdrnn->bp({1,0,1,1,1,1,1}, {0,0,0,0,0,0,1,0,0,0}); //6 pattern
+        MSE += sdrnn->bp({1,1,1,0,0,0,0}, {0,0,0,0,0,0,0,1,0,0}); //7 pattern
+        MSE += sdrnn->bp({1,1,1,1,1,1,1}, {0,0,0,0,0,0,0,0,1,0}); //8 pattern
+        MSE += sdrnn->bp({1,1,1,1,0,1,1}, {0,0,0,0,0,0,0,0,0,1}); //9 pattern
+    }
+    MSE /= 10.0;
+```
 ## Training by Back Propogation
 
 ### Step 1: Feed a Sample to the network
