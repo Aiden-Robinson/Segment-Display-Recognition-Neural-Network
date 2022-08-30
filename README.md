@@ -1,7 +1,11 @@
 # Segment-Display-Recognition-Neural-Network
 Created a neural netowork from scratch by following along with Linkedin Learning's "Training Neural Networks in C++". 
 
-Used a feedforward neural network with 1 input layer, 1 hidden layer, and, 1 output layer. There are 7 inputs and 10 outputs. The 7 inputs being the brightness of each display segment and the 10 outputs being the confidence of classification in each number 0-9
+Used a feedforward neural network with 1 input layer, 1 hidden layer, and, 1 output layer. There are 7 inputs and 10 outputs. The 7 inputs being the brightness of each display segment and the 10 outputs being the confidence of classification in each number 0-9.
+
+Without the use of external libraries, the entire network and its ability to run was coded manually using OOP all the way down to an individual perceptron. Doing so provided me with a deeper look into how neural networks function as in my previous project I used Tensorflow which had built in functions for all the processes.
+
+
 
 `Skills:` Neural Networks, OOP
 
